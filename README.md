@@ -1,72 +1,32 @@
 # Angular 17 example project: CRUD with Rest API
 
-Build an Angular 17 CRUD example App to consume Rest APIs, display, modify & search data.
+Build an Angular 17 example App to display the following catalog viewer application.
 
-Tutorial Application in that:
-- Each Tutorial has id, title, description, published status.
-- We can create, retrieve, update, delete Tutorials.
-- There is a Search bar for finding Tutorials by title.
+![sample](sample.png)
 
-![angular-17-crud-example](angular-17-crud-example.png)
+The application has 2 components:
 
-Run `ng serve --port 8081` for a dev server. Navigate to `http://localhost:8081/`. The app will automatically reload if you change any of the source files.
+    Viewer Component - Displays the selected product in a large size.
+    Thumbs Component - Presents a full list of product thumbnails. The list of images is passed to the Thumbs component as the component input.
 
-For instruction, please visit:
-> [Angular 17 CRUD example with Rest API](https://www.bezkoder.com/angular-17-crud-example/)
+Application Functionalities
 
-More Practice:
-> [Angular 17 Pagination example](https://www.bezkoder.com/angular-17-pagination-ngx/)
+    Initially, the catalog displays the first image in the Viewer.
+    Clicking on the previous or next button displays the previous or next image respectively. The thumbnail list is circular:
+        Clicking the next button when the last image is showing should display the first image.
+        Clicking the previous button when the first image is showing should display the last image.
+    Clicking on any thumbnail loads the appropriate image in the Viewer.
+    The checkbox with the label "Start Slide Show" has the following features:
+        When checked, it starts the automatic display of images in the Viewer, beginning with the currently displayed image and cycling to the next every 3 seconds.
+        When unchecked, it stops the automatic cycling of images.
+        During cycling, the user can interact as before (click any thumbnail or the next/previous buttons), after which cycling continues from that image.
 
-> [Angular 17 JWT Authentication & Authorization example](https://www.bezkoder.com/angular-17-jwt-auth/)
+Data Attributes Required for Tests
 
-> [Angular 17 File upload example with Progress bar](https://www.bezkoder.com/angular-17-file-upload/)
+The following data-test-id attributes are required in the component for the tests to pass:
 
-> [Angular 17 Form Validation example](https://www.bezkoder.com/angular-17-form-validation/)
-
-Fullstack with Node:
-
-> [Angular 17 + Node Express + MySQL example](https://www.bezkoder.com/angular-17-node-js-express-mysql/)
-
-> [Angular 17 + Node Express + PostgreSQL example](https://www.bezkoder.com/angular-17-node-js-express-postgresql/)
-
-> [Angular 17 + Node Express + MongoDB example](https://www.bezkoder.com/angular-17-node-js-express-mongodb/)
-
-> [Angular 17 + Node Express: File upload example](https://www.bezkoder.com/angular-17-node-express-file-upload/)
-
-Fullstack with Spring Boot:
-
-> [Angular 17 + Spring Boot example](https://www.bezkoder.com/spring-boot-angular-17-crud/)
-
-> [Angular 17 + Spring Boot + MySQL example](https://www.bezkoder.com/spring-boot-angular-17-mysql/)
-
-> [Angular 17 + Spring Boot + PostgreSQL example](https://www.bezkoder.com/spring-boot-angular-17-postgresql/)
-
-> [Angular 17 + Spring Boot + MongoDB example](https://www.bezkoder.com/spring-boot-angular-17-mongodb/)
-
-> [Angular 17 + Spring Boot: File upload example](https://www.bezkoder.com/angular-17-spring-boot-file-upload/)
-
-Fullstack with Django:
-> [Angular + Django example](https://www.bezkoder.com/django-angular-13-crud-rest-framework/)
-
-> [Angular + Django + MySQL](https://www.bezkoder.com/django-angular-mysql/)
-
-> [Angular + Django + PostgreSQL](https://www.bezkoder.com/django-angular-postgresql/)
-
-> [Angular + Django + MongoDB](https://www.bezkoder.com/django-angular-mongodb/)
-
-Security:
-> [Angular 17 + Spring Boot: JWT Authentication and Authorization example](https://www.bezkoder.com/angular-17-spring-boot-jwt-auth/)
-
-> [Angular 17 + Node.js Express: JWT Authentication and Authorization example](https://www.bezkoder.com/node-js-angular-17-jwt-auth/)
-
-Serverless with Firebase:
-> [Angular 17 Firebase CRUD with Realtime DataBase](https://www.bezkoder.com/angular-17-firebase-crud/)
-
-> [Angular 17 Firestore CRUD example](https://www.bezkoder.com/angular-17-firestore-crud/)
-
-> [Angular 17 Firebase Storage: File Upload/Display/Delete example](https://www.bezkoder.com/angular-17-firebase-storage/)
-
-Integration (run back-end & front-end on same server/port)
-> [How to integrate Angular with Node Restful Services](https://bezkoder.com/integrate-angular-12-node-js/)
-
-> [How to Integrate Angular with Spring Boot Rest API](https://bezkoder.com/integrate-angular-12-spring-boot/)
+    The Viewer component should have the data-test-id attribute "catalog-view".
+    The Previous button should have the data-test-id attribute "prev-slide-btn".
+    The Next button should have the data-test-id attribute "next-slide-btn".
+    The Thumbnail buttons should have the data-test-id attributes "thumb-button-0", "thumb-button-1", "thumb-button-2", and "thumb-button-3".
+    The "Start Slide Show" checkbox should have the data-test-id attribute "toggle-slide-show-button".

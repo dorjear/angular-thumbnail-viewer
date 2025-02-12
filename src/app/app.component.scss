@@ -1,0 +1,35 @@
+.slideshow-toggle {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.slideshow-toggle input[type='checkbox'] {
+  margin-right: 5px;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center; /* Align arrows and thumbnails vertically */
+  justify-content: center;
+  gap: 15px; /* Adjust spacing between elements */
+}
+
+.thumbnails {
+  display: flex;
+  gap: 10px; /* Add spacing between thumbnails */
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 36px;
+  color: #007bff;
+  transition: transform 0.2s ease-in-out, color 0.2s;
+  padding: 10px;
+}
+
+.icon-btn:hover {
+  color: #0056b3;
+  transform: scale(1.2);
+}

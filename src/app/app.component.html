@@ -3,32 +3,39 @@
 <div class="layout-column justify-content-center mt-75">
   <div class="layout-row justify-content-center">
     <div class="card pt-25">
+      <!-- Viewer Component -->
       <viewer [catalogImage]="catalogsList[activeIndex].image"></viewer>
-      <div class="layout-row justify-content-center align-items-center mt-20">
+
+      <!-- Navigation and Thumbnails -->
+      <div class="slider-container">
         <button
-          class="icon-only outlined"
+          class="icon-btn"
           data-test-id="prev-slide-btn"
-          (click)="previousSlide()"
+          (click)="selectedCatalog((activeIndex - 1 + catalogsList.length) % catalogsList.length)"
         >
-          <i class="material-icons">arrow_back</i>
+          <i class="material-icons">chevron_left</i>
         </button>
+
         <thumbs
           [items]="catalogsList"
           [currentIndex]="activeIndex"
           (selectedCatalog)="selectedCatalog($event)"
         ></thumbs>
+
         <button
-          class="icon-only outlined"
+          class="icon-btn"
           data-test-id="next-slide-btn"
-          (click)="nextSlide()"
+          (click)="selectedCatalog((activeIndex + 1) % catalogsList.length)"
         >
-          <i class="material-icons">arrow_forward</i>
+          <i class="material-icons">chevron_right</i>
         </button>
       </div>
+
     </div>
   </div>
 
-  <div class="layout-row justify-content-center mt-25">
+  <!-- Slideshow Toggle -->
+  <div class="layout-row justify-content-center mt-25 slideshow-toggle">
     <input
       type="checkbox"
       data-test-id="toggle-slide-show-button"

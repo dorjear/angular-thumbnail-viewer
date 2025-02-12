@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import {Thumbs} from "./thumbs/thumbs.component";
+import { AppComponent } from './app.component'; // Main Component
+import { Viewer } from './viewer/viewer.component';
+import { Thumbs } from './thumbs/thumbs.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'textEditors', pathMatch: 'full' },
-  { path: 'textEditors', component: Thumbs },
+  { path: '', component: AppComponent }, // Default route
+  { path: 'viewer', component: Viewer },
+  { path: 'thumbs', component: Thumbs }
 ];
 
 @NgModule({

@@ -1,0 +1,26 @@
+.thumbnails-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  background-size: cover;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.thumbnail:hover {
+  border-color: #007bff;
+}
+
+.thumbnail-selected {
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff;
+}

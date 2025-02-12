@@ -1,19 +1,16 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'thumbs',
-  templateUrl: './thumbs.component.html'
+  templateUrl: './thumbs.component.html',
+  styleUrls: ['./thumbs.component.scss']
 })
 export class Thumbs implements OnInit {
-  @Input() items: Array<{ thumb: string; image: string }> = []; // Correctly define the Input property
-  @Input() currentIndex: number = 0; // Correctly define the current index property
-  @Output() selectedCatalog: EventEmitter<number> = new EventEmitter<number>();
+  @Input() items: { thumb: string; image: string }[] = [];
+  @Input() currentIndex!: number;
+  @Output() selectedCatalog = new EventEmitter<number>();
 
   constructor() {}
 
-  ngOnInit() {}
-
-  selectThumbnail(index: number) {
-    this.selectedCatalog.emit(index);
-  }
+  ngOnInit(): void {}
 }
